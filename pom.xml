@@ -269,7 +269,7 @@
                     <archive>
                         <manifest>
                             <!-- Jar file entry point -->
-                            <mainClass>com.knoldus.view.AppDriver</mainClass>
+                            <mainClass>com.knoldus.AppDriver</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
