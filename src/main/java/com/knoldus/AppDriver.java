@@ -16,5 +16,7 @@ public class AppDriver {
         System.out.println("Enter death date in yy/MM/dd format");
         Date death = new SimpleDateFormat("dd/MM/yyyy").parse(sc.nextLine());
         livedTime.countSeconds(birth,death);
+        LeapYear leap = new LeapYear();
+        leap.leap();
     }
 }
