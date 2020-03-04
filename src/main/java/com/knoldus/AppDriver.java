@@ -15,8 +15,13 @@ public class AppDriver {
         Date birth = new SimpleDateFormat("dd/MM/yyyy").parse(sc.nextLine());
         System.out.println("Enter death date in yy/MM/dd format");
         Date death = new SimpleDateFormat("dd/MM/yyyy").parse(sc.nextLine());
-        livedTime.countSeconds(birth,death);
+        livedTime.countSeconds(birth, death);
         LeapYear leap = new LeapYear();
         leap.leap();
+        DayOfWeek weekdays = new DayOfWeek();
+        Scanner sc2 = new Scanner(System.in);
+        System.out.println("Enter year from which time you want to check (the date given is 8th sept");
+        int week = Integer.parseInt(sc2.nextLine());
+        System.out.println(weekdays.getDays(week));
     }
 }
