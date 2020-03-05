@@ -1,42 +1,30 @@
 package com.knoldus;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Stream;
 
 public class Count {
-    public static void main(String[] args) {
+    public Map<String, Integer> getWordCountOfDataFromFile(String filePath) {
+        Map<String, Integer> result = new HashMap<>();
+        try (Stream<String> lines = Files.lines(Path.of(filePath))) {
+            lines.forEach(line -> Arrays.stream(line.split(" "))
+                    .forEach(str -> {
+                        int one = 1;
+                        if (result.containsKey(str)) {
+                            result.replace(str, result.get(str) + one);
+                        } else {
+                            result.put(str, one);
+                        }
 
-        String filePath = "./src/main/resources/words.txt";
-        ReadFile(filePath);
-
-    }
-
-    private static void ReadFile(String FilePath) {
-        List<String> ListofWords = new ArrayList<>();
-
-        BufferedReader fileBR = null;
-        try {
-
-            fileBR = Files.newBufferedReader(Paths.get(FilePath));
-
-        } catch (IOException e) {
-            e.printStackTrace();
+                    }));
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
-
-        ListofWords = fileBR.lines().distinct().collect(Collectors.toList());
-        ListofWords.forEach(System.out::println);
-
+        return result;
     }
-
-    private static void log(String string) {
-        System.out.println(string);
-
-    }
-
 }
-

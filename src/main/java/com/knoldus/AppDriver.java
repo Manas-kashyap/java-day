@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class AppDriver {
     public static void main(String[] args) throws ParseException {
-        TimeOfTimeZone zonerTime = new TimeOfTimeZone();
+/*        TimeOfTimeZone zonerTime = new TimeOfTimeZone();
         zonerTime.timeZoneTime();
         SecondsLived livedTime = new SecondsLived();
         Scanner sc = new Scanner(System.in);
@@ -22,6 +22,9 @@ public class AppDriver {
         Scanner sc2 = new Scanner(System.in);
         System.out.println("Enter year from which time you want to check (the date given is 8th sept");
         int week = Integer.parseInt(sc2.nextLine());
-        System.out.println(weekdays.getDays(week));
+        System.out.println(weekdays.getDays(week));*/
+        String filePath = "./src/main/resources/words.txt";
+        Count c = new Count();
+        System.out.println(c.getWordCountOfDataFromFile(filePath));
     }
 }
